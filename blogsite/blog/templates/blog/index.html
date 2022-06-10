@@ -1,0 +1,105 @@
+{% extends "blog/main.html" %}
+{% load static %}
+{% block content %}
+    <!-- Main Site -->
+    <main id="site-main">
+
+        <!-- Blog Post Section -->
+        <section id="posts">
+            <div class="container">
+                <div class="grid">
+                    <!-- article -->
+                    {% for post in posts %}
+                    <div class="grid-item">
+                        <article class="article">
+                            <div class="card">
+                                <div class="overflow-img">
+                                    <a href="{% url 'post' post.id %}">
+                                        <img src="{% static 'blog/sogi.jpg' %}" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="card-body text-center px-1">
+                                    <a href="{% url 'post' post.id %}" class="text-title display-1 text-dark">
+                                        {{post.title}}
+                                    </a>
+                                    <p class="secondary-title text-secondary display-3">
+                                        <span><i class="far fa-clock text-primary"></i> {{post.created|timesince}} ago</span>
+                                        <span><i class="far fa-comments text-primary"></i> 12</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    {% endfor %}
+                    <!-- .article -->
+                </div>
+
+            </div>
+        </section>
+        <!-- .Blog Post Section -->
+
+        <!-- Swiper slider -->
+        <section class="slider">
+            <div class="container">
+
+                <!-- Slider main container -->
+                <div class="swiper-container">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="{% static 'blog/sogi.jpg' %}" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <!-- Slides -->
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="{% static 'blog/sogi.jpg' %}" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <!-- Slides -->
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="{% static 'blog/sogi.jpg' %}" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <!-- Slides -->
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="{% static 'blog/sogi.jpg' %}" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="{% static 'blog/sogi.jpg' %}" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="{% static 'blog/sogi.jpg' %}" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <img src="{% static 'blog/sogi.jpg' %}" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <!-- Slides -->
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- .Swiper slider -->
+
+    </main>
+    <!-- .Main Site -->
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "blog/main.html" %}
+{% load static %}
+{% block content %}
+<main id="site-main">
+    <aside id="cat" class="px-1">
+    
+        <!-- categories -->
+        <section class="categories">
+            <h2 class="text-center text-dark">Categories</h2>
+    
+            <a href="#" class="d-flex justify-content-between text-dark">
+                <span>Design</span>
+                <span>5</span>
+            </a>
+            <a href="#" class="d-flex justify-content-between text-dark">
+                <span>Graphic</span>
+                <span>8</span>
+            </a>
+            <a href="#" class="d-flex justify-content-between text-dark">
+                <span>Illistration</span>
+                <span>3</span>
+            </a>
+            <a href="#" class="d-flex justify-content-between text-dark">
+                <span>Fashion</span>
+                <span>2</span>
+            </a>
+        </section>
+    </aside>
+</main>
+{% endblock content %}
