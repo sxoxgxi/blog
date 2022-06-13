@@ -6,10 +6,11 @@
     --light: #f8f9fa;
     --secondary: #adb5bd;
     --dark: #343a40;
-    --primary-color: #ce2167;
+    --primary-color: #f15bb5;
     --secondary-color: #2ec4b6;
     --border: #e9ecef;
 }
+
 body {
     font-family: 'Roboto', sans-serif;
     padding: 0;
@@ -46,7 +47,7 @@ a {
 }
 
 .container {
-    max-width: 95%;
+    max-width: 1200px;
     padding: 0 15px;
     margin: auto;
 }
@@ -121,7 +122,7 @@ a {
     margin-top: 10px;
 }
 
-.mt-3 .django-ckeditor-widget{
+.mt-3 {
     margin-top: 50px;
 }
 
@@ -184,7 +185,7 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
 }
 
 .nav-brand {
@@ -312,7 +313,7 @@ a {
     padding-left: 7em;
 }
 
-.form-control .django-ckeditor-widget{
+.form-control {
     width: 100%;
     border: 2px solid var(--border);
     padding: 1em;
@@ -323,8 +324,8 @@ a {
 
 /* ----------- .article page ------- */
 
-/* ----------- categories page ------- */
-#cat .categories a {
+/* ----------- sidebar page ------- */
+#sidebar .categories a {
     padding: 1em 3em;
     font-size: 18px;
     margin-bottom: 1em;
@@ -332,11 +333,12 @@ a {
     border-radius: 99px;
 }
 
-#cat .categories a:hover {
+#sidebar .categories a:hover {
     background-color: var(--primary-color);
     color: var(--light);
 }
-/* ----------- .categories page ------- */
+
+/* ----------- .sidebar page ------- */
 
 /* ----------- sticky ------- */
 

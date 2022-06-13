@@ -1,6 +1,7 @@
 {% extends "blog/main.html" %}
 {% load static %}
 {% block content %}
+  
     <!-- Main Site -->
     <main id="site-main">
 
@@ -10,12 +11,11 @@
                 <!-- article heading -->
                 <div class="headings text-center">
                     <div class="category">
-                        <a href="#" class="nav-link">{{post.topic}}</a>
+                        <a href="#" class="nav-link">Travel</a>
                     </div>
 
                     <div class="title">
-                        <h2 class="text-title text-dark display-1">{{post.title}}
-                        </h2>
+                        <h2 class="text-title text-dark display-1">{{post}}</h2>
                     </div>
 
                     <div class="meta">
@@ -23,10 +23,10 @@
                             <i class="fas fa-user text-primary"></i> {{post.author|capfirst}}
                         </a>
                         <a href="#" class="link display-2 text-secondary px-1">
-                            <i class="fas fa-clock text-primary"></i> {{post.created|timesince}}
+                            <i class="fas fa-clock text-primary"></i> {{post.created|timesince}} ago
                         </a>
                         <a href="#" class="link display-2 text-secondary px-1">
-                            <i class="fas fa-comments text-primary"></i> 2
+                            <i class="fas fa-comments text-primary"></i> 3
                         </a>
                     </div>
 
@@ -34,7 +34,7 @@
 
                 <!-- thumbnail  -->
                 <div class="thumbnail mt-3">
-                    <img src="{% static 'blog/sogi.jpg' %}" class="thumbnail" alt="">
+                    <img src="{% static 'blog/cat6.jpg' %}" class="thumbnail" alt="">
                 </div>
 
                 <!-- content -->
@@ -91,14 +91,15 @@
                             <article class="article text-center">
                                 <div class="d-flex">
                                     <a href="#">
-                                        <img src="{% static 'blog/sogi.jpg' %}" class="object-fit" alt="">
+                                        <img src="./assets/img9.jpg" class="object-fit" alt="">
                                     </a>
                                     <div class="cart-body px-1">
                                         <div class="category">
                                             <a href="#" class="link text-primary text-secondary">Fashion</a>
                                         </div>
                                         <a href="#" class="text-title display-1 text-dark">
-                                            hello world orewa meow
+                                            Looking for some feedback for this rejected track
+                                            technology
                                         </a>
                                     </div>
                                 </div>
@@ -118,11 +119,12 @@
                                             <a href="#" class="link text-primary text-secondary">Fashion</a>
                                         </div>
                                         <a href="#" class="text-title display-1 text-dark">
-                                            hello world orewa meow
+                                            Looking for some feedback for this rejected track
+                                            technology
                                         </a>
                                     </div>
                                     <a href="#">
-                                        <img src="{% static 'blog/sogi.jpg' %}" class="object-fit" alt="">
+                                        <img src="./assets/img8.jpg" class="object-fit" alt="">
                                     </a>
                                 </div>
                             </article>
@@ -131,20 +133,18 @@
                 </div>
 
                 <div class="post-comments py-2">
-                    <h3 class="text-center display-1 secondary-title py-2">5 Comments</h3>
+                    <h3 class="text-center display-1 secondary-title py-2">3 Comments</h3>
 
                     <div class="comment-details">
                         <div class="comment-item py-2">
                             <div class="d-flex">
                                 <div class="avatar px-2">
-                                    <img src="" class="rounded" alt="">
+                                    <img src="{% static 'blog/cat1.jpg' %}" class="rounded" alt="">
                                 </div>
                                 <div class="comment-content">
                                     <h5 class="display-2 m-0">Nirmal</h5>
                                     <p class="title-secondary text-dark">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore aliqua. Quis ipsum suspendisse ultrices gravida lacus vel
-                                        facilisis.
+                                        This is nice
                                     </p>
                                 </div>
                             </div>
@@ -152,14 +152,12 @@
                             <div class="reply py-2">
                                 <div class="d-flex">
                                     <div class="avatar px-2">
-                                        <img src="" class="rounded" alt="">
+                                        <img src="{% static 'blog/cat3.jpg' %}" class="rounded" alt="">
                                     </div>
                                     <div class="comment-content">
-                                        <h5 class="display-2 m-0">Sogi</h5>
+                                        <h5 class="display-2 m-0">Robert</h5>
                                         <p class="title-secondary text-dark">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            tempor incididunt ut labore aliqua. Quis ipsum suspendisse ultrices gravida
-                                            lacus vel facilisis.
+                                            Lorem ipsum this is dyum
                                         </p>
                                     </div>
                                 </div>
@@ -169,14 +167,12 @@
                         <div class="comment-item py-2">
                             <div class="d-flex">
                                 <div class="avatar px-2">
-                                    <img src="" class="rounded" alt="">
+                                    <img src="{% static 'blog/cat1.jpg' %}" class="rounded" alt="">
                                 </div>
                                 <div class="comment-content">
                                     <h5 class="display-2 m-0">Nirmal</h5>
                                     <p class="title-secondary text-dark">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore aliqua. Quis ipsum suspendisse ultrices gravida lacus vel
-                                        facilisis.
+                                        Ikr this is good
                                     </p>
 
                                 </div>
@@ -187,17 +183,14 @@
                     <h3 class="text-center display-1 secondary-title py-2">Leave Comment</h3>
 
                     <div class="comment-form">
-                        <form action="">
-                            {% csrf_token %}
-                            <div class="d-flex justify-content-between flex-wrap">
-                                <input type="text" class="form-control " name="name" placeholder="Name">
-                                <input type="email" class="form-control" name="email" placeholder="Email">
-                            </div>
-                            <textarea class="form-control mt-3" placeholder="Message" rows="10"></textarea>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary display-2 text-light mt-2">Submit</button>
-                            </div>
-                        </form>
+                        <div class="d-flex justify-content-between flex-wrap">
+                            <input type="text" class="form-control " placeholder="Name">
+                            <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <textarea class="form-control mt-3" placeholder="Message" rows="10"></textarea>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary display-2 text-light mt-2">Submit</button>
+                        </div>
                     </div>
                 </div>
 
@@ -225,43 +218,43 @@
                         <!-- Slides -->
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="{% static 'blog/sogi.jpg' %}" class="img-fluid" alt="">
+                                <img src="{% static 'blog/cat1.jpg' %}" class="img-fluid" alt="">
                             </a>
                         </div>
                         <!-- Slides -->
                         <!-- Slides -->
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="{% static 'blog/sogi.jpg' %}" class="img-fluid" alt="">
+                                <img src="{% static 'blog/cat2.jpg' %}" class="img-fluid" alt="">
                             </a>
                         </div>
                         <!-- Slides -->
                         <!-- Slides -->
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="{% static 'blog/sogi.jpg' %}" class="img-fluid" alt="">
+                                <img src="{% static 'blog/cat3.jpg' %}" class="img-fluid" alt="">
                             </a>
                         </div>
                         <!-- Slides -->
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="{% static 'blog/sogi.jpg' %}" class="img-fluid" alt="">
+                                <img src="{% static 'blog/cat4.jpg' %}" class="img-fluid" alt="">
                             </a>
                         </div>
                         <!-- Slides -->
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="{% static 'blog/sogi.jpg' %}" class="img-fluid" alt="">
+                                <img src="{% static 'blog/cat5.jpg' %}" class="img-fluid" alt="">
                             </a>
                         </div>
                         <!-- Slides -->
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="{% static 'blog/sogi.jpg' %}" class="img-fluid" alt="">
+                                <img src="{% static 'blog/cat6.jpg' %}" class="img-fluid" alt="">
                             </a>
                         </div>
                         <!-- Slides -->
-
+                    
                     </div>
                 </div>
 
@@ -270,5 +263,4 @@
         <!-- .Swiper slider -->
 
     </main>
-    <!-- .Main Site -->
 {% endblock content %}
