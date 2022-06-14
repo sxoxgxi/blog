@@ -13,7 +13,7 @@ class BlogUser(UserCreationForm):
 class Blog(ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'topic', 'content']
+        fields = ['title', 'content']
 
 
 class BlogComment(ModelForm):
