@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
 # from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
+# from django.contrib.auth.decorators import login_required
 
 from .models import Post, Comment
 from .forms import Blog, BlogUser, BlogComment
@@ -36,7 +36,8 @@ def post(request, pk):
 
 def category(request):
     post = Post.objects.all()
-    context = {'post': post, 'category': post}
+    # topics = post.topic_set.all()
+    context = {'post': post}
     return render(request, 'blog/categories.html', context)
 
 

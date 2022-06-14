@@ -7,12 +7,13 @@
         <!-- categories -->
         <section class="categories">
             <h2 class="text-center text-dark">Categories</h2>
-    
+            {% for topic in post.topic %} 
             <a href="#" class="d-flex justify-content-between text-dark">
-                <span>Design</span>
-                <span>5</span>
+                <span>{{topic}}</span>
+                <span>{{topic.all.count}}</span>
             </a>
-            <a href="#" class="d-flex justify-content-between text-dark">
+            {% endfor %}
+            <!-- <a href="#" class="d-flex justify-content-between text-dark">
                 <span>Graphic</span>
                 <span>8</span>
             </a>
@@ -23,7 +24,7 @@
             <a href="#" class="d-flex justify-content-between text-dark">
                 <span>Fashion</span>
                 <span>2</span>
-            </a>
+            </a> -->
         </section>
     </aside>
 </main>
