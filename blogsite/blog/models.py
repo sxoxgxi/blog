@@ -6,6 +6,7 @@ from ckeditor.fields import RichTextField
 class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=254, null=True)
+    thumbnail = models.ImageField(null=True, blank=True)
     topic = models.CharField(max_length=254, null=True)
     content = RichTextField(blank=True, null=True)
     updated = models.DateTimeField(auto_now=True)
@@ -21,7 +22,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     name = models.CharField(max_length=254)
     email = models.EmailField(max_length=254)
-    body = RichTextField(blank=True, null=True)
+    body = models.TextField(null=True)
     created = models.DateTimeField(auto_now_add=True)
     
     class Meta:

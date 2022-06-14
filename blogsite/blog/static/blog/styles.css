@@ -3,12 +3,12 @@
 /* root styling */
 
 :root {
-    --light: #f8f9fa;
-    --secondary: #adb5bd;
+    --light: #fafaf8;
+    --secondary: #adb5bddb;
     --dark: #343a40;
-    --primary-color: #f15bb5;
-    --secondary-color: #2ec4b6;
-    --border: #e9ecef;
+    --primary-color: #ce2167;
+    --secondary-color: #1db8a8;
+    --border: #e9ecefc1;
 }
 
 body {

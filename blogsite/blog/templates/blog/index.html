@@ -15,7 +15,7 @@
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="{% url 'post' post.id %}">
-                                        <img src="{% static 'blog/sogi.jpg' %}" class="img-fluid" alt="">
+                                        <img src="{{post.thumbnail.url}}" class="img-fluid" alt="">
                                     </a>
                                 </div>
                                 <div class="card-body text-center px-1">

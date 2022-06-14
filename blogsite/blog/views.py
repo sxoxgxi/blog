@@ -20,6 +20,7 @@ def post(request, pk):
     form = BlogComment()
     post = Post.objects.get(id=pk)
     comments = post.comment_set.all()
+    number = comments.count()
     if request.method == 'POST':
         comment = Comment.objects.create(
             post=post,
@@ -27,8 +28,10 @@ def post(request, pk):
             email=request.POST.get('email'),
             body=request.POST.get('body')
         )
-    context = {'post': post, 'comment': comments, 'form': form}
+    context = {'post': post, 'comments': comments, 'form': form, 'number': number}
+    print(comments)
     return render(request, 'blog/article.html', context)
+    # return render(request, 'blog/misc.html', context)
 
 
 def category(request):
