@@ -72,15 +72,9 @@
                     
                     <div class="tags">
                         <div class="d-flex flex-wrap">
-                            <a href="#" class="nav-link btn bg-light">Travel</a>
-                            <a href="#" class="nav-link btn bg-light">Food</a>
-                            <a href="#" class="nav-link btn bg-light">Lifestyle</a>
-                            <a href="#" class="nav-link btn bg-light">Techonogy</a>
-                            <a href="#" class="nav-link btn bg-light">Fashion</a>
-                            <a href="#" class="nav-link btn bg-light">Fashion</a>
-                            <a href="#" class="nav-link btn bg-light">Fashion</a>
-                            <a href="#" class="nav-link btn bg-light">Fashion</a>
-                            <a href="#" class="nav-link btn bg-light">Fashion</a>
+                            {% for topic in topics %}
+                            <a href="#" class="nav-link btn bg-light">{{topic}}</a>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

@@ -2,20 +2,27 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
 
-from .models import Post, Comment
-from .forms import Blog, BlogUser, BlogComment
+from .models import Post, Comment, Topic
 from .profile_comps import get_quote
 # Create your views here.
 
 
 def blog(request):
     posts = Post.objects.all()
-    context = {'posts': posts}
+    topics = Topic.objects.all()
+    context = {'posts': posts, 'topics': topics}
     return render(request, 'blog/index.html', context)
 
 
 def post(request, pk):
-    form = BlogComment()
+    try:
+        previous_post = Post.objects.get(id=int(pk)-1)
+    except Post.DoesNotExist:
+        previous_post = "Dosen't exist"
+    try:
+        next_post = Post.objects.get(id=int(pk)+1) or "Dosen't exist"
+    except Post.DoesNotExist:
+        next_post = "Dosen't exist"
     post = Post.objects.get(id=pk)
     comments = post.comment_set.all()
     number = comments.count()
@@ -27,16 +34,15 @@ def post(request, pk):
             body=request.POST.get('body')
         )
     context = {'post': post, 'comments': comments,
-               'form': form, 'number': number}
+               'number': number, 'previous_post': previous_post, 'next_post': next_post}
     print(comments)
     return render(request, 'blog/article.html', context)
     # return render(request, 'blog/misc.html', context)
 
 
 def category(request):
-    post = Post.objects.all()
-    # topics = post.topic_set.all()
-    context = {'post': post}
+    topics = Topic.objects.all()
+    context = {'topics': topics}
     return render(request, 'blog/categories.html', context)
 
 
