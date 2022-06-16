@@ -1,8 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
-# from django.contrib.auth import authenticate, login, logout
-# from django.contrib.auth.decorators import login_required
 
 from .models import Post, Comment
 from .forms import Blog, BlogUser, BlogComment
@@ -28,7 +26,8 @@ def post(request, pk):
             email=request.POST.get('email'),
             body=request.POST.get('body')
         )
-    context = {'post': post, 'comments': comments, 'form': form, 'number': number}
+    context = {'post': post, 'comments': comments,
+               'form': form, 'number': number}
     print(comments)
     return render(request, 'blog/article.html', context)
     # return render(request, 'blog/misc.html', context)

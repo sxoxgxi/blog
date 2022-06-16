@@ -5,9 +5,17 @@ from ckeditor.fields import RichTextField
 # Create your models here.
 
 
+class Topic(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self) -> str:
+        return self.name
+
+
 class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=254, null=True)
+    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
     thumbnail = models.ImageField(null=True, blank=True)
     content = RichTextField(blank=True, null=True)
     updated = models.DateTimeField(auto_now=True)
@@ -18,13 +26,6 @@ class Post(models.Model):
 
     def __str__(self) -> str:
         return self.title
-
-
-class Topic(models.Model):
-    name = models.CharField(max_length=255)
-
-    def __str__(self) -> str:
-        return self.name
 
 
 class Comment(models.Model):
