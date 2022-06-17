@@ -47,7 +47,10 @@
             <div class="collapse">
                 <ul class="navbar-nav">
                     <div class="search-box">
-                        <input type="text" class="fa-solid nav-link" placeholder="Search here">
+                        <form action="{% url 'blog" %}>
+                            {% csrf_token %}
+                            <input type="text" name="q" class="fa-solid nav-link" placeholder="Search here">
+                        </form>
                     </div>
                     <a href="#" class="nav-link"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="nav-link"><i class="fab fa-twitter"></i></a>
