@@ -1,7 +1,5 @@
-{% extends "blog/main.html" %}
 {% load static %}
-{% block content %}
-    <!-- Main Site -->
+<!-- Main Site -->
     <main id="site-main">
 
         <!-- Blog Post Section -->
@@ -9,22 +7,22 @@
             <div class="container">
                 <div class="grid">
                     <!-- article -->
-                    {% for post in posts %}
+                    {% for article in posts %}
                     <div class="grid-item">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
-                                    <a href="{% url 'post' post.id %}">
-                                        <img src="{{post.thumbnail.url}}" class="img-fluid" alt="">
+                                    <a href="{% url 'post' article.id %}">
+                                        <img src="{{article.thumbnail.url}}" class="img-fluid" alt="">
                                     </a>
                                 </div>
                                 <div class="card-body text-center px-1">
-                                    <a href="{% url 'post' post.id %}" class="text-title display-1 text-dark">
-                                        {{post.title}}
+                                    <a href="{% url 'post' article.id %}" class="text-title display-1 text-dark">
+                                        {{article.title}}
                                     </a>
                                     <p class="secondary-title text-secondary display-3">
-                                        <span><i class="far fa-clock text-primary"></i> {{post.created|timesince}} ago</span>
-                                        <span><i class="far fa-comments text-primary"></i> {{post.comment_set.all.count}}</span>
+                                        <span><i class="far fa-clock text-primary"></i> {{article.created|timesince}} ago</span>
+                                        <span><i class="far fa-comments text-primary"></i> {{article.comment_set.all.count}}</span>
                                     </p>
                                 </div>
                             </div>
@@ -102,4 +100,3 @@
 
     </main>
     <!-- .Main Site -->
-{% endblock %}

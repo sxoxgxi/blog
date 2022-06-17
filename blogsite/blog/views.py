@@ -11,7 +11,7 @@ def blog(request):
     posts = Post.objects.all()
     topics = Topic.objects.all()
     context = {'posts': posts, 'topics': topics}
-    return render(request, 'blog/index.html', context)
+    return render(request, 'blog/main.html', context)
 
 
 def post(request, pk):
@@ -35,7 +35,6 @@ def post(request, pk):
         )
     context = {'post': post, 'comments': comments,
                'number': number, 'previous_post': previous_post, 'next_post': next_post}
-    print(comments)
     return render(request, 'blog/article.html', context)
     # return render(request, 'blog/misc.html', context)
 

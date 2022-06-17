@@ -85,21 +85,21 @@
                         {% if previous_post != "Dosen't exist" %}
                         <div class="prev">
                             <div class="py-2">
-                                <a href="#" class="display-2 text-dark">
+                                <a href="{% url 'post' previous_post.id %}" class="display-2 text-dark">
                                     <i class="fas fa-chevron-left"></i>
                                     Previous Post
                                 </a>
                             </div>
                             <article class="article text-center">
                                 <div class="d-flex">
-                                    <a href="#">
+                                    <a href="{% url 'post' previous_post.id %}">
                                         <img src="{{previous_post.thumbnail.url}}" class="object-fit" alt="">
                                     </a>
                                     <div class="cart-body px-1">
                                         <div class="category">
                                             <a href="#" class="link text-primary text-secondary">{{previous_post.topic}}</a>
                                         </div>
-                                        <a href="#" class="text-title display-1 text-dark">
+                                        <a href="{% url 'post' previous_post.id %}" class="text-title display-1 text-dark">
                                             {{previous_post.title|capfirst}}
                                         </a>
                                     </div>
@@ -110,7 +110,7 @@
                         {% if next_post != "Dosen't exist" %}
                         <div class="next text-right">
                             <div class="py-2">
-                                <a href="#" class="display-2 text-dark">
+                                <a href="{% url 'post' next_post.id %}" class="display-2 text-dark">
                                     Next Post
                                     <i class="fas fa-chevron-right"></i>
                                 </a>
@@ -121,7 +121,7 @@
                                         <div class="category">
                                             <a href="#" class="link text-primary text-secondary">{{next_post.topic}}</a>
                                         </div>
-                                        <a href="#" class="text-title display-1 text-dark">
+                                        <a href="{% url 'post' next_post.id %}" class="text-title display-1 text-dark">
                                             {{next_post.title|capfirst}}
                                         </a>
                                     </div>
