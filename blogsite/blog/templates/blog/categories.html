@@ -7,12 +7,12 @@
         <!-- categories -->
         <section class="categories">
             <h2 class="text-center text-dark">Categories</h2>
-            <a href="#" class="d-flex justify-content-between text-dark">
+            <a href="{% url 'blog' %}" class="d-flex justify-content-between text-dark">
                 <span>All</span>
                 <span>{{topics.count}}</span>
             </a>
             {% for topic in topics %} 
-            <a href="#" class="d-flex justify-content-between text-dark">
+            <a href="{% url 'blog' %}?q={{topic}}" class="d-flex justify-content-between text-dark">
                 <span>{{topic}}</span>
                 <span>{{topic.post_set.all.count}}</span>
             </a>

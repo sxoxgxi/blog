@@ -48,7 +48,7 @@
             <!-- post footer -->
             <div class="post-footer mb-3">
                 <div class="post-tags d-flex flex-wrap justify-content-center">
-                    {% for topic in topics|shuffle %}
+                    {% for topic in topics %}
                     {% if forloop.counter <= 3 %}
                     <a href="#" class="nav-link btn bg-light">{{topic}}</a>
                     {% endif %}
@@ -70,7 +70,6 @@
                         </p>
 
                         <div class="post-tags d-flex flex-wrap justify-content-center">
-                            <a href="#" class="nav-link"><i class="fab fa-facebook-f"></i></a>
                             <a href="#" class="nav-link"><i class="fab fa-twitter"></i></a>
                             <a href="#" class="nav-link"><i class="fab fa-instagram"></i></a>
                             <a href="#" class="nav-link"><i class="fab fa-github"></i></a>

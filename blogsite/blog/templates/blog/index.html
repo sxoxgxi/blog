@@ -28,6 +28,12 @@
                             </div>
                         </article>
                     </div>
+                    {% empty %}
+                        <div class="card-body text-center px-1">
+                            <p class="text-title display-1 text-dark">
+                                No results found for your query.
+                            </p>
+                        </div>
                     {% endfor %}
                     <!-- .article -->
                 </div>

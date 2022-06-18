@@ -39,3 +39,9 @@ class Comment(models.Model):
 
     def __str__(self) -> str:
         return self.body
+class Sogi(models.Model):
+    bio = models.TextField(null=True, blank=True)
+    avatar = models.ImageField(null=True, blank=True)
+
+    def __str__(self) -> str:
+        return self.bio

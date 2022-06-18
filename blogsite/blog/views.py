@@ -13,9 +13,9 @@ def blog(request):
     posts = Post.objects.filter(
         Q(topic__name__icontains=q) |
         Q(title__icontains=q) |
-        Q(author__icontains=q) |
         Q(content__icontains=q)
     )
+    # posts = Post.objects.all()
     topics = Topic.objects.all()
     context = {'posts': posts, 'topics': topics}
     return render(request, 'blog/main.html', context)
@@ -31,7 +31,7 @@ def post(request, pk):
     except Post.DoesNotExist:
         next_post = "Dosen't exist"
     post = Post.objects.get(id=pk)
-    topics = Topic.objects.all()
+    topics = Topic.objects.all().order_by('?')
     comments = post.comment_set.all()
     number = comments.count()
     if request.method == 'POST':
@@ -48,14 +48,14 @@ def post(request, pk):
 
 
 def category(request):
-    topics = Topic.objects.all()
+    topics = Topic.objects.all().order_by('name')
     context = {'topics': topics}
     return render(request, 'blog/categories.html', context)
 
 
 def profile(request):
-    quote = get_quote()[0]
-    author = get_quote()[1]
-    context = {'quote': quote, 'author': author}
-    return HttpResponse("hello world")
-    # return render(request, 'blog/profile.html', context)
+    page = 'profile'
+    # quote = get_quote()[0]
+    # author = get_quote()[1]
+    context = {'page': page}
+    return render(request, 'blog/about.html', context)

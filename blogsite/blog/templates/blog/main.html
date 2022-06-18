@@ -38,7 +38,7 @@
                 <ul class="navbar-nav">
                     <a href="{% url 'blog' %}" class="nav-link">Home</a>
                     <a href="{% url 'cat' %}" class="nav-link">Categories</a>
-                    <a href="#footer" class="nav-link">About</a>
+                    <a href="{% url 'profile' %}" class="nav-link">About</a>
                     <a href="mailto:sxoxgxi@duck.com" class="nav-link">Contact</a>
                 </ul>
             </div>
@@ -46,14 +46,10 @@
             <!-- collapse on toggle button click -->
             <div class="collapse">
                 <ul class="navbar-nav">
-                    <div class="search-box">
-                        <form action="{% url 'blog" %}>
-                            {% csrf_token %}
+                        <form class="search-box" action="{% url 'blog' %}">
                             <input type="text" name="q" class="fa-solid nav-link" placeholder="Search here">
                         </form>
-                    </div>
-                    <a href="#" class="nav-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="nav-link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://twitter.com/sxoxgxi" class="nav-link"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="nav-link"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="nav-link"><i class="fab fa-github"></i></a>
                     <a href="#" class="nav-link"><i class="fab fa-discord"></i></a>
@@ -65,6 +61,8 @@
     {% block content %}
       {% include "blog/index.html" %}
     {% endblock content%}
+    {% if page != 'profile' %}
+      
     <!-- footer -->
     <footer id="footer">
         <div class="container">
@@ -75,7 +73,7 @@
                     <div class="tags">
                         <div class="d-flex flex-wrap">
                             {% for topic in topics %}
-                            <a href="#" class="nav-link btn bg-light">{{topic}}</a>
+                            <a href="{% url 'blog' %}?q={{topic}}" class="nav-link btn bg-light">{{topic}}</a>
                             {% endfor %}
                         </div>
                     </div>
@@ -85,8 +83,7 @@
                     
                     <div class="tags social">
                         <div class="d-flex flex-wrap">
-                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-twitter"></i></a>
+                            <a href="https://twitter.com/sxoxgxi" class="nav-link btn bg-light"><i class="fab fa-twitter"></i></a>
                             <a href="#" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
                             <a href="#" class="nav-link btn bg-light"><i class="fab fa-github"></i></a>
                             <a href="#" class="nav-link btn bg-light"><i class="fab fa-discord"></i></a>
@@ -104,6 +101,7 @@
         </div>
     </footer>
     <!-- .footer -->
+    {% endif %}
     
     
     <!-- masonry libray -->
