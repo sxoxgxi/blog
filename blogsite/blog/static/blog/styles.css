@@ -84,7 +84,9 @@ a {
 .text-right {
     text-align: right;
 }
-
+.text-left {
+    text-align: left;
+}
 .btn {
     padding: 15px 20px;
     border: none;

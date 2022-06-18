@@ -1,4 +1,3 @@
-from mimetypes import common_types
 from django.contrib import admin
 
 from .models import Post, Comment, Topic, Sogi

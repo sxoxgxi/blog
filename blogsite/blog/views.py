@@ -1,10 +1,9 @@
-from turtle import title
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
 from django.db.models import Q
 from .models import Post, Comment, Topic
-from .profile_comps import get_quote
+from .profile_comps import get_quote, random_comment
 # Create your views here.
 
 
@@ -15,9 +14,9 @@ def blog(request):
         Q(title__icontains=q) |
         Q(content__icontains=q)
     )
-    # posts = Post.objects.all()
+    posts_random = Post.objects.all().order_by('?')
     topics = Topic.objects.all()
-    context = {'posts': posts, 'topics': topics}
+    context = {'posts': posts, 'topics': topics, 'posts_random': posts_random}
     return render(request, 'blog/main.html', context)
 
 
@@ -31,18 +30,19 @@ def post(request, pk):
     except Post.DoesNotExist:
         next_post = "Dosen't exist"
     post = Post.objects.get(id=pk)
+    posts_random = Post.objects.all().order_by('?')
     topics = Topic.objects.all().order_by('?')
     comments = post.comment_set.all()
     number = comments.count()
     if request.method == 'POST':
         comment = Comment.objects.create(
             post=post,
-            name=request.POST.get('name'),
+            name=request.POST.get('name') if request.POST.get('name') != '' else "Annoymous",
             email=request.POST.get('email'),
-            body=request.POST.get('body')
+            body=request.POST.get('body') if request.POST.get('body') != '' else random_comment()
         )
     context = {'post': post, 'comments': comments,
-               'previous_post': previous_post, 'next_post': next_post, 'topics': topics, 'number': number}
+               'previous_post': previous_post, 'next_post': next_post, 'topics': topics, 'number': number, 'posts_random': posts_random}
     return render(request, 'blog/article.html', context)
     # return render(request, 'blog/misc.html', context)
 
